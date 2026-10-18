@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# CodeRabbit設定：https://docs.coderabbit.ai/reference/configuration
+
+language: "ja" # レビュー言語
+
+reviews:
+  path_filters:
+    - "!.agents/skills/**" # エージェント用スキルを除外
+    - "!.claude/skills/**" # エージェント用スキルを除外
+    - "!pnpm-lock.yaml" # ロックファイルを除外
+  path_instructions:
+    - path: "src/**/*.ts"
+      instructions: |
+        GASのV8ランタイムで使えない構文やAPIが含まれていないか確認してください。
+        メール単位で通知済み状態を管理し、同じスレッドの新着メールを見逃さないか確認してください。
+        同時実行時の重複通知と、通知失敗時の再試行・通知済み記録のタイミングを確認してください。
+  auto_review:
+    enabled: true # 自動レビューを有効化
+    drafts: false # ドラフトPRは対象外
+  profile: "chill" # バランスの取れた指摘量
+  request_changes_workflow: true # 指摘解決・最新コミットのレビュー・チェック成功後に自動承認
+  changed_files_summary: false # 変更ファイル一覧を非表示
+  collapse_walkthrough: true # ウォークスルーを折りたたむ
+  commit_status: false # 従来のcommit status更新を無効化
+  fail_commit_status: true # レビュー実行エラーを失敗表示にする
+  estimate_code_review_effort: true # レビュー工数の見積もりを表示
+  high_level_summary: false # PRサマリーを無効化
+  poem: false # ポエム生成を無効化
+  in_progress_fortune: false # レビュー中のおみくじ表示を無効化
+  related_prs: true # 関連PRを表示
+  review_status: true # 初回導入時にスキップ理由などを確認できるようにする
+  sequence_diagrams: true # シーケンス図を生成
+  pre_merge_checks:
+    docstrings:
+      mode: "warning" # 説明コメントの不足を警告する
+      threshold: 80 # 対象関数の80％を基準にする
+  finishing_touches:
+    docstrings:
+      enabled: false # ドキュメントコメント生成を無効化
+
+knowledge_base:
+  code_guidelines:
+    filePatterns:
+      - "AGENTS.md" # 共通の開発規約
