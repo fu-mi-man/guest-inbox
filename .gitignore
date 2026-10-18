@@ -1,6 +1,7 @@
 # 依存ライブラリとビルド成果物
 node_modules/
 dist/
+.build/
 coverage/
 *.tsbuildinfo
 

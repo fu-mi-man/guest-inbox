@@ -2,9 +2,8 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
-
+    "rootDir": "./src", // 入力元
+    "outDir": "./.build", // 変換したJavaScriptの保存先
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "ESNext",
@@ -43,6 +42,7 @@
 
     "moduleResolution": "Bundler",       // import先をRollup向けのルールで探す
     "lib": ["ES2020"],                   // ブラウザ専用APIの型を含めない
+    "noEmitOnError": true, // 型エラーがあれば出力しない
   },
   "include": ["src/**/*.ts"]
 }
