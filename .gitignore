@@ -1,0 +1,19 @@
+# 依存ライブラリとビルド成果物
+node_modules/
+dist/
+.build/
+coverage/
+*.tsbuildinfo
+
+# ローカル環境の設定と認証情報
+.env
+.env.*
+!.env.example
+.clasprc.json
+.clasprc.*.json
+credentials.json
+client_secret*.json
+
+# ログとmacOSの管理情報
+*.log
+.DS_Store
