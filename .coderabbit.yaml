@@ -21,7 +21,6 @@ reviews:
   request_changes_workflow: true # 指摘解決・最新コミットのレビュー・チェック成功後に自動承認
   changed_files_summary: false # 変更ファイル一覧を非表示
   collapse_walkthrough: true # ウォークスルーを折りたたむ
-  commit_status: false # 従来のcommit status更新を無効化
   fail_commit_status: true # レビュー実行エラーを失敗表示にする
   estimate_code_review_effort: true # レビュー工数の見積もりを表示
   high_level_summary: false # PRサマリーを無効化
@@ -32,7 +31,7 @@ reviews:
   sequence_diagrams: true # シーケンス図を生成
   pre_merge_checks:
     docstrings:
-      mode: "warning" # 説明コメントの不足を警告する
+      mode: "off" # 仮実装の段階では説明コメントの不足をチェックしない
       threshold: 80 # 対象関数の80％を基準にする
   finishing_touches:
     docstrings:
